@@ -1,6 +1,6 @@
 # NCviewer
 
-A simple html page around Three.js to view and edit NC files.
+A simple HTML page using Three.js to view and edit NC files.
 
 Live demo: https://nc-viewer.ncnetic.com
 
