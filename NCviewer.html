@@ -374,7 +374,7 @@
 	gizmo.attachControls(controls);
 
 	const raycaster = new THREE.Raycaster();
-	raycaster.params.Line.threshold = 1;
+	// raycaster.params.Line.threshold = 1;
 	const mouse = new THREE.Vector2();
 
 	let isMouseDown = false;
@@ -401,6 +401,8 @@
 			mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
 			mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
+			raycaster.params.Line.threshold = size / 100 / camera.zoom;
+			
 			raycaster.setFromCamera(mouse, camera);
 			const intersects = raycaster.intersectObject(lineSegmentsMesh, false);
 
@@ -454,7 +456,7 @@
 		const center = box.getCenter(new THREE.Vector3());
 
 		const f = size * 1.1;
-		raycaster.params.Line.threshold = f / 200 * camera.zoom;
+		// raycaster.params.Line.threshold = f / 200 * camera.zoom;
 		camera.left = -f * aspect / 2;
 		camera.right = f * aspect / 2;
 		camera.top = f / 2;
