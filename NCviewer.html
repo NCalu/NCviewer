@@ -471,6 +471,19 @@
 		controls.update();
 		
 		addAxisLines(box);
+
+		const viewerWidth = viewer.clientWidth;
+		const viewerHeight = viewer.clientHeight;
+		const newAspect = viewerWidth / viewerHeight;
+
+		const viewSize = camera.top - camera.bottom;
+		camera.left = -viewSize * newAspect / 2;
+		camera.right = viewSize * newAspect / 2;
+		camera.updateProjectionMatrix();
+
+		renderer.setSize(viewerWidth, viewerHeight);
+
+		gizmo.update();
 	}
 
 	const loadBtn = document.getElementById('loadBtn');
@@ -674,18 +687,7 @@
 	});
 
 	window.addEventListener('resize', function () {
-		const viewerWidth = viewer.clientWidth;
-		const viewerHeight = viewer.clientHeight;
-		const newAspect = viewerWidth / viewerHeight;
-
-		const viewSize = camera.top - camera.bottom;
-		camera.left = -viewSize * newAspect / 2;
-		camera.right = viewSize * newAspect / 2;
-		camera.updateProjectionMatrix();
-
-		renderer.setSize(viewerWidth, viewerHeight);
-
-		gizmo.update();
+		resetCamera();
 	});
 
 	function clearSceneLines() {
@@ -957,3 +959,4 @@
   </script>
 </body>
 </html>
+
