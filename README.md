@@ -11,4 +11,5 @@ Live demo: https://nc-viewer.ncnetic.com
 It’s great to see this code being useful in other projects:
 
 https://plugins.jetbrains.com/plugin/28995-nc-viewer
+
 https://github.com/noahlias/nc_view_vscode
